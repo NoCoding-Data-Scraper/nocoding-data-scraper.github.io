@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://www.amz123.com/usatopkeywords-1-1-.htm?rank=0&uprank=1_50 -->
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>跨境导航</title>
+		<link rel="stylesheet" href="./static/bootstrap.css">
+		<link rel="stylesheet" href="./static/bootstrap-bbs.css">
+		<link rel="stylesheet" href="./static/huux-theme-simple.css">
+		<link rel="stylesheet" href="./static/font_1004935_s1bez137u4g.css">
+		<link rel="stylesheet" href="./static/font_1713637_l3qzpgh61rc.css">
+		<link rel="stylesheet" href="./static/style.css">
+		<style>
+			.keywords {
+				width: 50%;
+				text-align: left !important;
+			}
+
+			.rank {
+				width: calc(50% / 3);
+				text-align: center;
+			}
+
+			.h {
+				position: relative;
+				color: #777;
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+			}
+
+			.h a {
+				color: #1fab89
+			}
+
+			.listdata .rank:last-child {
+				text-align: right !important;
+			}
+
+			.listdata {
+				padding: 10px 35px;
+				font-size: 14px;
+				border: none !important;
+			}
+
+			.listdata:nth-of-type(odd) {
+				background-color: #f9f9f9;
+				border-radius: 35px;
+			}
+
+			.listdata:hover {
+				background: #6f79ed;
+				color: #fff;
+				border-radius: 35px;
+			}
+
+			.listdata:hover a {
+				color: #fff
+			}
+
+			.listdata a {
+				color: #1fab89
+			}
+		</style>
+		<script src="../common/static/vue.js"></script>
+		<script src="../common/static/jquery-3.6.0.min.js"></script>
+		<script src="./static/data.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div style="height: 100px;">&nbsp;</div>
+			<main>
+				<div class="table-wrapper">
+					<div class="l1" style="width: calc(50% - 20px);">
+						<div class="table-full-screen table-striped table-sellers-list" style="display: flex;    padding: 10px 35px;">
+							<div class="keywords h" style="cursor: pointer">搜索词</div>
+							<div class="rank h" style="cursor: pointer;color:#1fab89">本周排名</div>
+							<div class="rank h" style="cursor: pointer;color:#1fab89">上周排名</div>
+							<div class="rank h" style="cursor: pointer;color:#1fab89;text-align: right !important;">排名涨跌</div>
+						</div>
+
+						<div style="display: flex" class="listdata" v-for="item in dataList1">
+							<div class="keywords">{{item.keyword}}</div>
+							<div class="rank">{{item.rank}}</div>
+							<div class="rank">{{item.lastrank}}</div>
+							<div class="rank">
+								<i class="iconfont icon-shangsheng" v-if="item.change=='up'"></i>
+								<i class="iconfont icon-xiajiang" v-if="item.change=='down'"></i>
+								<i class="iconfont icon-jianquwubiankuang" v-if="item.change=='equal'"></i>
+								{{item.risefall}}
+							</div>
+						</div>
+					</div>
+					<div class="r1" style="width: calc(50% - 20px)">
+						<div class="table-full-screen table-striped table-sellers-list" style="display: flex;    padding: 10px 35px;">
+							<div class="keywords h" style="cursor: pointer;">搜索词</div>
+							<div class="rank h" style="cursor: pointer;color:#1fab89">本周排名</div>
+							<div class="rank h" style="cursor: pointer;color:#1fab89">上周排名</div>
+							<div class="rank h" style="cursor: pointer;color:#1fab89;text-align: right !important;">排名涨跌</div>
+						</div>
+						<div style="display: flex" class="listdata" v-for="item in dataList2">
+							<div class="keywords">{{item.keyword}}</div>
+							<div class="rank">{{item.rank}}</div>
+							<div class="rank">{{item.lastrank}}</div>
+							<div class="rank">
+								<i class="iconfont icon-shangsheng" v-if="item.change=='up'"></i>
+								<i class="iconfont icon-xiajiang" v-if="item.change=='down'"></i>
+								<i class="iconfont icon-jianquwubiankuang" v-if="item.change=='equal'"></i>
+								{{item.risefall}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			<nav>
+				<ul class="pagination my-4 justify-content-center flex-wrap">
+					<li class="page-item"><a href="javascript:void(0);" @click="goPage(1)" class="page-link">1</a></li>
+					<li class="page-item"><a href="javascript:void(0);" @click="goPage(2)" class="page-link">2</a></li>
+					<li class="page-item"><a href="javascript:void(0);" @click="goPage(3)" class="page-link">3</a></li>
+					<li class="page-item"><a href="javascript:void(0);" @click="goPage(4)" class="page-link">4</a></li>
+					<li class="page-item"><a href="javascript:void(0);" @click="goPage(5)" class="page-link">5</a></li>
+				</ul>
+			</nav>
+			
+			<div style="height: 100px;">&nbsp;</div>
+		</div>
+		
+		<script>
+			let app = new Vue({
+				el: '.container',
+				data: {
+					dataList1: [],
+					dataList2: [],
+					pageNo: 1,
+					pageSize: 500,
+					total: 100,
+					totalPage: 10
+				},
+				created() {
+					this.total = data.length;
+					this.totalPage = Math.ceil(this.total / this.pageSize);
+
+					this.goPage(1);
+				},
+				methods: {
+					goPage(page) {
+						this.pageNo = page;
+
+						let start = (page - 1) * this.pageSize;
+						let end = page * this.pageSize;
+						let vals = [];
+
+						for (let i = start; i < end; i++) {
+							if (data[i]) {
+								vals.push(data[i]);
+							}
+						}
+						this.dataList1 = vals.slice(0, 250);
+						this.dataList2 = vals.slice(251, 500);
+					}
+				}
+			});
+
+			function goPage(page) {
+				app.goPage(page);
+			}
+
+			function goNextPage() {
+				app.goPage(app.pageNo += 1);
+			}
+
+			function goPrevPage() {
+				app.goPage(app.pageNo -= 1);
+			}
+		</script>
+	</body>
+</html>

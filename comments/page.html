@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="ua-windows ua-webkit">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="UTF-8" />
+		<title>肖申克的救赎短评</title>
+		<link href="./static/douban.css" rel="stylesheet" type="text/css" />
+		<link href="./static/_all.css" rel="stylesheet" type="text/css" />
+		<link href="./static/init.css" rel="stylesheet" />
+		<link href="./static/54a57eff4f4579c0.css" rel="stylesheet" type="text/css" />
+		<script src="../common/static/vue.js"></script>
+		<script src="../common/static/jquery-3.6.0.min.js"></script>
+		<script src="./static/data.js"></script>
+	</head>
+	<body>
+		<div style="height: 20px;"></div>
+		<div id="wrapper">
+			<div id="content">
+				<h1>
+					肖申克的救赎短评
+				</h1>
+				<div class="grid-16-8 clearfix">
+					<div class="article">
+						<div class="mod-bd" id="comments">
+							<div class="comment-item" v-for="item in dataList">
+								<div class="avatar">
+									<a :title="item.name" href="javascript:void(0);">
+										<img :src="item.headurl" class="" />
+									</a>
+								</div>
+								<div class="comment">
+									<h3>
+										<span class="comment-vote">
+											<span class="votes vote-count">
+												{{item.vote}}
+											</span>
+											<a href="javascript:;" onclick="">
+												有用
+											</a>
+											<!--删除短评-->
+										</span>
+										<span class="comment-info">
+											<a href="javascript:void(0);" class="">
+												{{item.name}}
+											</a>
+											<span>
+												想看
+											</span>
+											<span class="comment-time" :title="item.time">
+												{{item.time}}
+											</span>
+										</span>
+									</h3>
+									<p class=" comment-content">
+										<span class="short">
+											{{item.content}}
+										</span>
+									</p>
+								</div>
+							</div>
+							<div id="paginator" class="center">
+								<a href="#" onclick="goPage(1)" data-page="first">
+									&lt;&lt;首页
+								</a>
+								<a href="#" onclick="goPrevPage()" data-page="prev">
+									&lt;前页
+								</a>
+								<a href="#" onclick="goNextPage()" data-page="next" class="next" v-if="pageNo < totalPage">
+									后页&gt;
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="aside">
+						<p class="pl2">
+							&gt;
+							<a href="javascript:void(0);">
+								去肖申克的救赎的页面
+							</a>
+						</p>
+						<div class="indent">
+							<div class="movie-summary">
+								
+								<div class="movie-pic">
+									<a href="javascript:void(0);">
+										<img alt="肖申克的救赎 The Shawshank Redemption" title="肖申克的救赎 The Shawshank Redemption" src="./static/p480747492.webp"
+										 rel="v:image" width="100px" />
+									</a>
+								</div>
+								
+								<span class="attrs">
+									<p>
+										<span class="pl">
+											导演:
+										</span>
+										<a href="https://movie.douban.com/celebrity/1047973/">
+											弗兰克&middot;德拉邦特
+										</a>
+									</p>
+									<p>
+										<span class="pl">
+											主演:
+										</span>
+										<a href="https://movie.douban.com/celebrity/1054521/">
+											蒂姆&middot;罗宾斯
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1054534/">
+											摩根&middot;弗里曼
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1041179/">
+											鲍勃&middot;冈顿
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1000095/">
+											威廉姆&middot;赛德勒
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1013817/">
+											克兰西&middot;布朗
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1010612/">
+											吉尔&middot;贝罗斯
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1054892/">
+											马克&middot;罗斯顿
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1027897/">
+											詹姆斯&middot;惠特摩
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1087302/">
+											杰弗里&middot;德曼
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1074035/">
+											拉里&middot;布兰登伯格
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1099030/">
+											尼尔&middot;吉恩托利
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1343305/">
+											布赖恩&middot;利比
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1048222/">
+											大卫&middot;普罗瓦尔
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1343306/">
+											约瑟夫&middot;劳格诺
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1315528/">
+											祖德&middot;塞克利拉
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1014040/">
+											保罗&middot;麦克兰尼
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1390795/">
+											芮妮&middot;布莱恩
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1083603/">
+											阿方索&middot;弗里曼
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1330490/">
+											V&middot;J&middot;福斯特
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1000635/">
+											弗兰克&middot;梅德拉诺
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1390797/">
+											马克&middot;迈尔斯
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1150160/">
+											尼尔&middot;萨默斯
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1048233/">
+											耐德&middot;巴拉米
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1000721/">
+											布赖恩&middot;戴拉特
+										</a>
+										/
+										<a href="https://movie.douban.com/celebrity/1333685/">
+											唐&middot;麦克马纳斯
+										</a>
+									</p>
+									<p>
+										<span class="pl">
+											类型:
+										</span>
+										犯罪,剧情
+									</p>
+									<p>
+										<span class="pl">
+											地区:
+										</span>
+										美国
+									</p>
+									<p>
+										<span class="pl">
+											片长:
+										</span>
+										142分钟
+									</p>
+									<p>
+										<span class="pl">
+											上映:
+										</span>
+										1994-09-10(多伦多电影节),1994-10-14(美国)
+									</p>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script>
+			let app = new Vue({
+				el: '#wrapper',
+				data: {
+					dataList: [],
+					pageNo: 1,
+					pageSize: 20,
+					total: 220,
+					totalPage: 11
+				},
+				created() {
+					this.goPage(1);
+				},
+				methods: {
+					goPage(page) {
+						this.pageNo = page;
+						
+						let start = (page - 1) * this.pageSize;
+						let end = page * this.pageSize;
+						let vals = [];
+						
+						for (let i = start; i < end; i++) {
+							vals.push(data[i]);
+						}
+						this.dataList = vals;
+					}
+				}
+			});
+			
+			function goPage(page) {
+				app.goPage(page);
+			}
+			
+			function goNextPage() {
+				app.goPage(app.pageNo += 1);
+			}
+
+			function goPrevPage() {
+				app.goPage(app.pageNo -= 1);
+			}
+		</script>
+	</body>
+</html>

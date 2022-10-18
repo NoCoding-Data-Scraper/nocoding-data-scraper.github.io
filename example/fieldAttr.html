@@ -1,0 +1,106 @@
+<!-- 
+	本网页用于测试采集字段各属性,
+	动态字段
+	批量字段采集
+	字段加载前点击
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Field Attr</title>
+		<style type="text/css">
+			ol, ul {
+			    list-style: none;
+			}
+			.p-parameter-list {
+			    padding: 20px 0 15px;
+			}
+			.p-parameter-list li {
+			    width: 200px;
+			}
+			
+		</style>
+		<script src="/common/static/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<p>基本字段信息</p>
+		<div id="basicField">
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>自动</th>
+						<td>自动</td>
+					</tr>
+					<tr>
+						<th>可读文本</th>
+						<td>自动</td>
+					</tr>
+					<tr>
+						<th>HTML源码</th>
+						<td><span>NDS是一个<font style="color: red;">好</font>工具。</span></td>
+					</tr>
+					<tr>
+						<th>链接地址</th>
+						<td><a href="https://www.minirpa.net/">官网</a></td>
+					</tr>
+					<tr>
+						<th>图片</th>
+						<td><img src="/common/images/logo-32.png" /></td>
+					</tr>
+					<tr>
+						<th>邮箱</th>
+						<td>有问题请发送邮件到: service@minirpa.net</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+		<p>动态字段名</p>
+		<div id="dynamicField">
+			<ul>
+				<li><span name="name">zhangsan</span></li>
+				<li><span name="age">45</span></li>
+			</ul>
+		</div>
+		<br />
+		<p>批量属性采集</p>
+		<div id="batchField">
+			<ul class="parameter2 p-parameter-list">
+				<li title="荣耀新品手机">商品名称：荣耀新品手机</li>
+				<li title="100037437645">商品编号：100037437645</li>
+				<li title="440.00g">商品毛重：440.00g</li>
+				<li title="中国大陆">商品产地：中国大陆</li>
+				<li title="骁龙600系列">CPU型号：骁龙600系列</li>
+				<li title="8GB">运行内存：8GB</li>
+				<li title="彩云追月">机身颜色：彩云追月</li>
+				<li title="不支持防水">三防标准：不支持防水</li>
+				<li title="FHD+">屏幕分辨率：FHD+</li>
+				<li title="26-49W">充电功率：26-49W</li>
+				<li title="128GB">机身内存：128GB</li>
+				<li title="银色系">机身色系：银色系</li>
+				<li title="OLED曲面屏">屏幕材质：OLED曲面屏</li>
+				<li title="5000万像素">后摄主像素：5000万像素</li>
+				<li title="简约风，时尚">风格：简约风，时尚</li>
+			</ul>
+		</div>
+		<br />
+		<p>字段事件</p>
+		<div id="fieldAction">
+			<p id="content">
+				你好，今天是个好日子。<a href='javascript:void();' onclick="loadMoreContent()">查看更多</a>
+			</p>
+		</div>
+		<br />
+		<br />
+		<br />
+		
+		<script>
+			function loadMoreContent() {
+				$("#content").html('你好，今天是个好日子。适合去钓鱼。')
+			}
+			
+			
+		</script>
+	</body>
+</html>
